@@ -9,5 +9,6 @@ $(function() {
     console.log('2222')
     if (!sessionStorage['testKey']) {
         // window.location = '../../login.html'
+        console.log('2222')
     }
 })
