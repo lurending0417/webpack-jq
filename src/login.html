@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/common/common.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./css/login.css"> -->
+    <%= htmlWebpackPlugin.files.webpackManifest %>
+</head>
+<body class="login-body">
+    <div class="login-wrap">
+        <h4 class="login-title">用户登陆</h4>
+        <div class="login-content-wrap">
+
+            <div class="login-form-wrap">
+
+
+            <div class="alert alert-warning alert-dismissible alert-warning-wrap" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              用户名错误
+            </div>
+
+                <input class="input-box" type="text" id="user" name="" placeholder="工号/邮箱/ID">
+                <input class="input-box" type="password" id="pwd" placeholder="请输入登陆密码">
+                <input class="submit-btn" type="button" id="loginBtn" name="" value="登陆">
+                <div class="tip-box">
+                    <div class="remember-wrap" id="rememberBtn">
+                        <label class="unchecked checked">
+                            <input id="rememberBox" class="checkbox" type="checkbox" name="" value="">
+                        </label>
+                        <span>记住密码</span>
+                    </div>
+                    <span id="fogetBtn" class="forget-link">忘记密码？</span>
+                </div>
+            </div>
+            <div class="switch-login-wrap">
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="./js/libs/jquery.min.js"></script>
+    <script src="./js/libs/bootstrap.min.js"></script>
+    <script src="./js/libs/encrypt.js"></script>
+    <script src="./js/libs/cookie.js"></script>
+    <script src="./js/libs/loading.js"></script>
+    <script src="./js/login.js"></script> -->
+</body>
+</html>
+

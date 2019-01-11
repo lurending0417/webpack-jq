@@ -1,0 +1,25 @@
+body{
+    background-color: #f5f5f5;
+}
+
+ul{
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+
+a{
+    color:#333;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.alert-warning-wrap{
+    padding: 5px 35px 5px 15px;
+    background-color: #fff0ef;
+    border-color: #ec4b48;
+    color: #ec4b48;
+}

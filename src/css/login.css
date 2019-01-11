@@ -1,0 +1,130 @@
+.login-body{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-wrap{
+    width: 476px;
+    box-shadow: #bdbdbd 0 0 20px;
+}
+
+.login-title{
+    margin: 0;
+    height: 66px;
+    line-height: 66px;
+    text-align: center;
+    color: #fff;
+    font-size:22px;
+    background-color: #ec4b48;
+    font-weight: normal;
+}
+
+.login-content-wrap{
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-form-wrap{
+    width: 332px;
+    margin: auto;
+    margin-top: 68px;
+}
+
+.input-box{
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    color:#808080;
+    padding: 0 22px;
+    font-size: 14px;
+    outline: none;
+    border: 1px solid #d7d8d9;
+    margin-bottom: 22px;
+}
+
+.input-box:focus{
+    border-color: #ec4b48;
+}
+
+.submit-btn{
+    width: 100%;
+    height: 35px;
+    background-color: #ec4b48;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+    line-height: 35px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    border: none;
+    outline:none;
+}
+
+.tip-box{
+    display: flex;
+    justify-content: space-between;
+    color: #b3b3b3;
+    font-size: 12px;
+    margin-bottom: 40px;
+}
+
+.remember-wrap{
+    display: flex;
+    align-items: flex-end;
+}
+.remember-wrap .checkbox{
+    display: none;
+}
+
+.remember-wrap .unchecked{
+    display: inline-block;
+    background-image: url(../img/unchecked.png);
+    background-size:10px 8px;
+    width: 10px;
+    height: 8px;
+    margin-right: 5px;
+}
+.remember-wrap .checked{
+    background-image: url(../img/checked.png);
+}
+.remember-wrap>span:hover{
+    cursor: pointer;
+    color: #333;
+}
+.forget-link:hover{
+    color: #333;
+    cursor: pointer;
+}
+
+.switch-login-wrap{
+    position: absolute;
+    top: 22px;
+    right: 21px;
+    width: 46px;
+    height: 47px;
+    background-image: url(../img/code.png);
+    background-size: 46px 47px;
+    color: #ec4b48;
+}
+.switch-login-wrap:hover,.unchecked:hover{
+    cursor: pointer;
+}
+.switch-login-wrap:after{
+    content:'扫码登陆';
+    color: #ec4b48;
+    padding-left: 6px;
+    font-size: 10px;
+    line-height: 26px;
+    position: absolute;
+    width: 65px;
+    height: 26px;
+    background-size:65px 26px;
+    top: 0;
+    left: -65px;
+    background-image: url(../img/msgbox.png);
+}
