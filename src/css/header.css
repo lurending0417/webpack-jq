@@ -133,6 +133,7 @@
     left: -10px;
     width: 300px;
     visibility: hidden;
+    z-index: 1;
 }
 .subnav-item-wrap h5 {
     font-weight: bold;
@@ -148,7 +149,7 @@
     height:0;
     border-width:8px;
     border-style:solid;
-    border-color:transparent  transparent #fff;/*透明 透明  灰*/
+    border-color:transparent  transparent #fff;
     top:-15px;
     left: 20px;
 }

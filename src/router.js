@@ -14,14 +14,7 @@ $(function(){
                 templateUrl: './pages/list/list.html',
                 controller: './pages/list/list.js',
                 styles:'./pages/list/list.css',
-                animate:'',
-                children: [{
-                    name: '',
-                    templateUrl: './pages/list/list.html',
-                    controller: './pages/list/list.js',
-                    styles:'./pages/list/list.css',
-                    animate:''
-                }]
+                animate:''
             },
             'defaults': 'home' //默认路由
         }
