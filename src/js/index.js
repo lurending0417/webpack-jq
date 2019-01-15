@@ -1,4 +1,4 @@
-import '../../node_modules/bootstrap/dist/js/bootstrap.min.js'
+import 'bootstrap/dist/js/bootstrap.min.js'
 import './libs/route.js'
 import '../router.js'
 import createNavBar from './components/navBar'

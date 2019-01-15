@@ -3,14 +3,26 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-// const
 
-// const createHtmlTpl = function () {
-//
-// }
+function lessResourceLoader() {
+    let loaders = [
+        'css-loader',
+        'less-loader',
+        {
+            loader: 'sass-resources-loader',
+            options: {
+                resources: [
+                    path.resolve(__dirname, './src/css/common/config.less'),
+                ]
+            }
+        }
+    ];
+    return ExtractTextPlugin.extract({
+        use: loaders,
+        fallback: 'style-loader'
+    })
+}
 
-let a = '/fontawesome-webfont.ttf?v=4.7.0';
-console.log(/\.((woff2|svg|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9]))$/.test(a))
 
 
 
@@ -31,14 +43,16 @@ const config = {
         rules: [
             // {
             //     test: /\.(woff2?)(\?v=[0-9]\.[0-9]\.[0-9])$/,
-            //     loader: 'url-loader?&limit=10000&name=font/[hash:8].[name].[ext]&mimetype=application/font-woff'
+            //     loader: 'url-loader?limit=10000&name=fonts/[hash:8].[name].[ext]&mimetype=application/font-woff'
             // },
             {
-                test: /\.((woff2|svg|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9]))$/,
-                loader: 'url-loader?prefix=font/&limit=10000&name=font/[hash:8].[name].[ext]'
+                test: /\.((woff2?|svg|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9]))$/,
+                use: [
+                    'url-loader?&limit=10000&name=fonts/[hash:8].[name].[ext]'
+                ]
             },
             {
-                test: /\.(woff2?|svg|jpe?g|png|gif|ico)$/,
+                test: /\.(svg|jpe?g|png|gif|ico)$/,
                 use: [
                     //小于10KB的图片会自动转成dataUrl，
                     'url-loader?&limit=10000&name=img/[hash:8].[name].[ext]'
@@ -53,10 +67,7 @@ const config = {
             },
             {
                 test: /\.less$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: ["css-loader", "less-loader"]
-                })
+                use: lessResourceLoader()
             },
             {
                 test: /\.js$/,

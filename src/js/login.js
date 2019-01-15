@@ -1,9 +1,13 @@
-import '../../node_modules/bootstrap/dist/js/bootstrap.min.js'
+import 'bootstrap/dist/js/bootstrap.min.js'
 
 import {getCookie, setCookie} from './libs/cookie.js'
 import './libs/loading.js'
+import './libs/api'
 
+// import 'font-awesome/css/font-awesome.min.css'
+import '../css/test.less'
 import '../css/login.css'
+
 
 $(function() {
     $('#user').focus();
@@ -23,17 +27,20 @@ $(function() {
             user: $('#user').val(),
             pwd: $('#pwd').val()
         }
-        let idNum = $.openMask();
-        setTimeout(function() {
-            $.closeMask(idNum)
-            // location = '../../index.html';
-        }, 3000)
+        // location = '../index.html';
         setCookie('user', data.user, 1)
         setCookie('pwd', data.pwd, 1)
 
         // console.log('data', data)
         sessionStorage['testKey'] = 'login'
-
+        // $.sendReq({
+        //     url: '/login',
+        //     type: 'POST',
+        //     data: data,
+        //     success: (json) => {
+        //         console.log(json)
+        //     }
+        // })
         // $.ajax({
         //     url: '',
         //     type: 'POST',

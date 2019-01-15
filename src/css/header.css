@@ -1,5 +1,7 @@
+
+
 .header{
-    height: 42px;
+    height: 80px;
     background-color: #e6e6e6;
     display: flex;
     align-items: center;
@@ -120,8 +122,15 @@
     margin-left: 20px;
     margin-right: 30px;
 }
-
-
+.nav-item-wrap{
+    border-bottom: 4px solid transparent;
+}
+.nav-item-wrap:hover>span{
+    color: #f66f6a;
+}
+.nav-item-wrap:hover{
+    border-bottom-color: #f66f6a;
+}
 .nav-item-wrap:hover .subnav-list-wrap{
     visibility: visible;
 }

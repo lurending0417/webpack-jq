@@ -6,6 +6,7 @@ export default function createNavBar(parentDom) {
     let navBar = '';
     let navBarConfig = [{
         title: '财务系统',
+        hasNew: false,
         child: [{
             title: '财务报表'
         }, {
