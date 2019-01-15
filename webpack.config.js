@@ -82,20 +82,6 @@ const config = {
         ]
     },
     plugins: [
-        // new webpack.optimize.CommonsChunkPlugin({
-        //     name: 'manifest',
-        //     chunks: ['vendor']
-        // }),
-        // new webpack.optimize.CommonsChunkPlugin({
-        //     name: ['vendor', 'runtime'],
-        //     filename: '[name].js',
-        //     minChunks: Infinity
-        // }),
-        // new webpack.optimize.CommonsChunkPlugin({
-        //     name: 'common',
-        //     filename: '[name].js',
-        //     chunks: ['index','login']//从index.js和login.js中抽取commons chunk
-        // }),
         new webpack.optimize.CommonsChunkPlugin({
             name: ['vendor','runtime'],
             filename: '[name].js',
@@ -149,7 +135,6 @@ const config = {
         contentBase: './dist/',
         port: 3000,
         disableHostCheck: false,
-        public: '192.168.20.199',
         host:'0.0.0.0'
     }
 };

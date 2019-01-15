@@ -5,8 +5,8 @@ import './libs/loading.js'
 import './libs/api'
 
 // import 'font-awesome/css/font-awesome.min.css'
-import '../css/test.less'
-import '../css/login.css'
+
+import '../css/login.less'
 
 
 $(function() {
@@ -27,7 +27,7 @@ $(function() {
             user: $('#user').val(),
             pwd: $('#pwd').val()
         }
-        // location = '../index.html';
+        location = '../index.html';
         setCookie('user', data.user, 1)
         setCookie('pwd', data.pwd, 1)
 
