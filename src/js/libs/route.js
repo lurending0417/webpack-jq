@@ -141,6 +141,7 @@
                 //console.log($(router.mainView)
                 loadScript(routerItem.controller);
                 loadCss(routerItem.styles);
+                console.log('document.documentElement', document.documentElement)
             },
             error: function(xhr, errorType, error){
                 if($(router.errorTemplateId).length===0){
@@ -169,7 +170,6 @@
         script.setAttribute('src', src);
         script.onreadystatechange = script.onload = function() {
             script.onreadystatechange = null;
-            console.log('document.documentElement', document.documentElement)
             document.documentElement.removeChild(script);
             script = null;
             if (!loaded) {
@@ -178,17 +178,15 @@
             }
             loaded = true;
         };
-
         document.documentElement.appendChild(script);
     }
 
     function loadCss(src,callback){
         if(!src) return;
         let head = document.getElementsByTagName('head')[0],
-            cssURL = src,
             linkTag = document.createElement('link');
 
-         linkTag.href = cssURL;
+         linkTag.href = src;
          linkTag.setAttribute('rel','stylesheet');
          linkTag.setAttribute('media','all');
          linkTag.setAttribute('type','text/css');

@@ -16,6 +16,7 @@ $(function(){
                 styles:'./pages/list/list.css',
                 animate:''
             },
+
             'defaults': 'home' //默认路由
         }
     });

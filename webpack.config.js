@@ -1,8 +1,13 @@
 const path = require('path');
+const glob = require('glob');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+const resolve = route => {
+    return path.resolve(__dirname, route)
+}
 
 function lessResourceLoader() {
     let loaders = [
@@ -12,7 +17,7 @@ function lessResourceLoader() {
             loader: 'sass-resources-loader',
             options: {
                 resources: [
-                    path.resolve(__dirname, './src/css/common/config.less'),
+                    resolve('./src/css/common/config.less'),
                 ]
             }
         }
@@ -23,7 +28,21 @@ function lessResourceLoader() {
     })
 }
 
+let entryFiles = {
+    index: './src/js/index.js',
+    login: './src/js/login.js',
+    vendor: ['jquery', './node_modules/bootstrap/dist/js/bootstrap.min.js']
+}
 
+// pages 资源打包
+// const pagePath = glob.sync('./src/pages/*/*.js');
+const pagePath = glob.sync('./src/pages/*');
+pagePath.forEach(function (files) {
+    let arr=[];
+    arr.push(resolve(glob.sync(files+'/**/*.js').toString()));
+    arr.push(resolve(glob.sync(files+'/**/*.less').toString()));
+    entryFiles[files.toString()]= arr;
+})
 
 
 //配置文件
@@ -87,14 +106,14 @@ const config = {
             filename: '[name].js',
             minChunks: Infinity
         }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            },
-            output: {
-                comments: false
-            }
-        }),
+        // new webpack.optimize.UglifyJsPlugin({
+        //     compress: {
+        //         warnings: false
+        //     },
+        //     output: {
+        //         comments: false
+        //     }
+        // }),
         new HtmlWebpackPlugin({
             filename: 'login.html',
             template: 'inline-html-withimg-loader!'+path.resolve(__dirname, './src/login.html'),
