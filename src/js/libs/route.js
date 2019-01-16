@@ -127,10 +127,10 @@
             success: function(data, status, xhr){
                 //加载页面，动画分享
 
-                if(routerAnimate=='right'){
+                if(routerAnimate==='right'){
                     $(router.mainView).html(data).children().addClass('page-from-right-to-center');
 
-                }else if(routerAnimate=='left'){
+                }else if(routerAnimate==='left'){
                     $(router.mainView).html(data).children().addClass('page-from-left-to-center');
                 }else{
                     $(router.mainView).html(data)
@@ -169,6 +169,7 @@
         script.setAttribute('src', src);
         script.onreadystatechange = script.onload = function() {
             script.onreadystatechange = null;
+            console.log('document.documentElement', document.documentElement)
             document.documentElement.removeChild(script);
             script = null;
             if (!loaded) {

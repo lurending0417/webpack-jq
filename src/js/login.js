@@ -70,4 +70,13 @@ $(function() {
         }
     })
 
+    // 查看密码
+    $('#seePwdBtn').click(function (e) {
+        let target = $(this).prev("#pwd");
+        if (target.attr('type') === 'text') {
+            target.attr('type', 'password')
+        } else {
+            target.attr('type', 'text')
+        }
+    })
 })

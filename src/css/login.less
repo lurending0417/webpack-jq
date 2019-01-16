@@ -52,6 +52,18 @@
           border-color: @global-main-color;
         }
       }
+      .pwd-box{
+        position: relative;
+        .see-pwd-icon{
+          position: absolute;
+          top: 3px;
+          right: 20px;
+          .bg-icon('../img/see-pwd-icon.png', 18px, 12px);
+          &:hover{
+            cursor: pointer;
+          }
+        }
+      }
       .submit-btn{
         width: 100%;
         height: @login-input-height;
