@@ -3,11 +3,11 @@ import './libs/route.js'
 import '../router.js'
 import createNavBar from './components/navBar'
 
-import '../css/header.css'
+import '../css/header1.less'
 
 
 $(function() {
-    createNavBar($('#navBarParent'))
+    // createNavBar($('#navBarParent'))
 
     // if (!sessionStorage['testKey']) {
     //     // window.location = '../../login.html'

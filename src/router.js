@@ -19,5 +19,4 @@ $(function(){
             'defaults': 'home' //默认路由
         }
     });
-
 });

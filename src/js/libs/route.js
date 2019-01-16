@@ -3,7 +3,7 @@
     function R(){
     }
     R.prototype.start = function(config){
-        var _this = this;
+        let _this = this;
         _this.routerMap = config.router;                     //路由配置
         _this.mainView = config.view;                        //目标div
         _this.errorTemplateId = config.errorTemplateId;      //错误id
@@ -12,10 +12,10 @@
             startRouter();
         };
     };
-    var messageStack = [];
+    let messageStack = [];
 
     R.prototype.getMessage = function(id){
-        var msg = {};
+        let msg = {};
         $.each(messageStack,function(i,e){
             if(e.id===id){
                 msg = e;
@@ -24,7 +24,7 @@
         return msg;
     };
     R.prototype.setMessage = function(obj){
-        var _obj = JSON.parse(JSON.stringify(obj));
+        let _obj = JSON.parse(JSON.stringify(obj));
         $.each(messageStack,function(i,e){
             if(e.id===_obj.id){
                 e = _obj;
@@ -37,7 +37,7 @@
         if(typeof id==='undefined'){
             return false;
         }
-        var index = 0;
+        let index = 0;
         $.each(messageStack,function(i,e){
             if(e.id===id){
                 index = i;
@@ -50,13 +50,13 @@
         });
     };
     R.prototype.clearMessage = function(id){
-        var index = 0;
+        let index = 0;
         messageStack = [];
     };
 
     R.prototype.stringify = function(routerUrl,paramObj){
-        var paramStr='' ,hash;
-        for(var i in  paramObj){
+        let paramStr='' ,hash;
+        for(let i in  paramObj){
             paramStr += i + '=' + encodeURIComponent(paramObj[i]) + '&';
         }
         if(paramStr === ''){
@@ -69,24 +69,24 @@
         return hash;
     };
     R.prototype.parse = function(routerHash){
-        var hash = typeof routerHash ==='undefined'?location.hash:routerHash;
-        var obj = {
+        let hash = typeof routerHash ==='undefined'?location.hash:routerHash;
+        let obj = {
             url:'',
             param: {}
         };
-        var param = {},url='';
-        var pIndex = hash.indexOf('?');
+        let param = {},url='';
+        let pIndex = hash.indexOf('?');
         if(hash===''){
             return obj;
         }
 
         if(pIndex>-1){
             url = hash.substring(1,pIndex);
-            var paramStr = hash.substring(pIndex+1);
-            var paramArr = paramStr.split('&');
+            let paramStr = hash.substring(pIndex+1);
+            let paramArr = paramStr.split('&');
 
             $.each(paramArr,function(i,e){
-                var item = e.split('='),
+                let item = e.split('='),
                     key,
                     val;
                 key = item[0];
@@ -109,16 +109,16 @@
     };
     function routerAction (routeObj){
 
-        var routerItem = router.routerMap[routeObj.url];
+        let routerItem = router.routerMap[routeObj.url];
 
         if(typeof routerItem==='undefined'){
-            var defaultsRoute = router.routerMap.defaults;
+            let defaultsRoute = router.routerMap.defaults;
             routerItem = router.routerMap[defaultsRoute];
             location.hash = defaultsRoute;
             return false;
         }
 
-        var routerAnimate=routeObj.param.animate ? routeObj.param.animate : routerItem.animate;
+        let routerAnimate=routeObj.param.animate ? routeObj.param.animate : routerItem.animate;
 
         $.ajax({
             type: 'GET',
@@ -146,7 +146,7 @@
                 if($(router.errorTemplateId).length===0){
                     return false;
                 }
-                var errHtml = $(router.errorTemplateId).html();
+                let errHtml = $(router.errorTemplateId).html();
                 errHtml = errHtml.replace(/{{errStatus}}/,xhr.status);
                 errHtml = errHtml.replace(/{{errContent}}/,xhr.responseText);
                 $(router.mainView).html(errHtml);
@@ -155,15 +155,15 @@
     }
 
     function startRouter  () {
-        var hash = location.hash;               //获取当前URL的锚部分
-        var routeObj = router.parse(hash);
+        let hash = location.hash;               //获取当前URL的锚部分
+        let routeObj = router.parse(hash);
         //console.log(routeObj);
         routerAction(routeObj);
     }
 
     function loadScript(src, callback) {
 
-        var script = document.createElement('script'),
+        let script = document.createElement('script'),
             loaded;
 
         script.setAttribute('src', src);
@@ -183,7 +183,7 @@
 
     function loadCss(src,callback){
         if(!src) return;
-        var head = document.getElementsByTagName('head')[0],
+        let head = document.getElementsByTagName('head')[0],
             cssURL = src,
             linkTag = document.createElement('link');
 

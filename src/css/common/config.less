@@ -8,3 +8,11 @@
   justify-content: center;
   align-items: center;
 }
+
+.bg-icon(@icon-url; @icon-width; @icon-height) {
+  display: inline-block;
+  width: @icon-width;
+  height: @icon-height;
+  background-size: @icon-width @icon-height;
+  background-image: url(@icon-url);
+}

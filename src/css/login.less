@@ -2,11 +2,23 @@
 @login-box-width: 500px;
 @login-input-height: 50px;
 
-.login-body{
+.login-page-body{
   .fixed-current-view;
   .login-wrap{
     width: @login-box-width;
     box-shadow: #bdbdbd 0 0 20px;
+    position: relative;
+    &:after{
+      content: '';
+      position: absolute;
+      top: -146px;
+      left: 50%;
+      margin-left: -113px;
+      background-image: url(../img/login_logo.png);
+      background-size: 226px 46px;
+      width: 226px;
+      height: 46px;
+    }
   }
   .login-title{
     margin: 0;
@@ -25,7 +37,7 @@
     .login-form-wrap{
       width: 423px;
       margin: auto;
-      margin-top: 105px;
+      margin-top: 74px;
       .input-box{
         width: 100%;
         height: 50px;
@@ -97,7 +109,7 @@
     }
     .switch-login-wrap{
       position: absolute;
-      top: 22px;
+      top: 12px;
       right: 21px;
       width: 52px;
       height: 52px;
